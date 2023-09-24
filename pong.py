@@ -1,4 +1,5 @@
 import pygame
+import math
 pygame.init()
 
 WIDTH, HEIGHT = 700,  500
@@ -96,7 +97,7 @@ def handle_collision(ball, left_paddle, right_paddle):
         if ball.y >= left_paddle.y and ball.y <= left_paddle.y + paddle_height:
             if ball.x - ball.radius <= left_paddle.x + left_paddle.width:
                 ball.x_vel *= -1
-
+                # Handling collisions
                 middle_y = left_paddle.y + left_paddle.height / 2
                 difference_in_y = middle_y - ball.y
                 reduction_factor = (left_paddle.height / 2) / ball.MAX_VELOCITY
@@ -160,7 +161,12 @@ def main():
             ball.reset()
 
         # This is the left paddle ai
-        left_paddle.y = ball.y - left_paddle.height//2 
+        if ball.y < (left_paddle.y + left_paddle.height//2) and left_paddle.y - left_paddle.VELOCITY >= 0:
+            left_paddle.move(up = True)
+        if ball.y > (left_paddle.y + left_paddle.height//2) and left_paddle.y + left_paddle.VELOCITY + left_paddle.height <= HEIGHT:
+            left_paddle.move(up = False)
+
+
 
         won = False
         if left_score >= WINNING_SCORE:
