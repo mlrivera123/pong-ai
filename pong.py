@@ -159,6 +159,9 @@ def main():
             left_score += 1
             ball.reset()
 
+        # This is the left paddle ai
+        left_paddle.y = ball.y - left_paddle.height//2 
+
         won = False
         if left_score >= WINNING_SCORE:
             won = True
