@@ -1,5 +1,4 @@
 import pygame
-import math
 pygame.init()
 
 WIDTH, HEIGHT = 700,  500
@@ -11,7 +10,7 @@ black = (0,0,0)
 
 paddle_width, paddle_height = 20, 100
 BALL_RADIUS = 7
-SCORE_FONT = pygame.font.SysFont("comicans", 50)
+SCORE_FONT = pygame.font.SysFont("comicsans", 50)
 WINNING_SCORE = 10
 
 class Paddle:
