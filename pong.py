@@ -115,7 +115,6 @@ def handle_collision(ball, left_paddle, right_paddle):
                 ball.y_vel = y_vel * -1
 
 
-
 def handle_paddle_movement(keys, left_paddle, right_paddle):
     if keys[pygame.K_w] and left_paddle.y - left_paddle.VELOCITY >= 0:
         left_paddle.move(up = True)
